@@ -21,6 +21,10 @@ image_list = {'1403':'456808', '2991012':'10922955', '343038':'2062154', '260183
 '4305945':'12736851', '4340170':'12780021', '3650000':'11847041', '3961906':'12284159', '3502536':'11644415'}
 
 def create_image(status):
+    """
+    Picks a random phrase from first_list and second_list, combines with a random generator ID
+    then runs it through Memegenerator API to get poster image 
+    """
     mg_user = 'RyanGoslingsBugle'
     mg_pass = 'memegenerator.net'
     generator_id = random.choice(list(image_list.keys())) 
