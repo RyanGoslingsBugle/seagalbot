@@ -4,10 +4,10 @@ from twython import Twython
 import random, requests
 from io import BytesIO
 
-APP_KEY = xxxxxx
-APP_SECRET = xxxxxx
-OAUTH_TOKEN = xxxxxx
-OAUTH_TOKEN_SECRET = xxxxxx
+APP_KEY = 'R7nija1KbLNzmzhDJO2YApBuk'
+APP_SECRET = 'S9A60wN2sqO0cjgIhPPWEkgYtpFct5oLobMLOL4ojrGk9U8aw6'
+OAUTH_TOKEN = '3042944175-2YUohVoxctHDKR8bKahSkJpTTa4etHrsnzeSb4T'
+OAUTH_TOKEN_SECRET = 'Qda7toZnX6CpgkeFQibn7uG2hbWDHGQsnclnphOgThtjN'
 
 api = Twython(APP_KEY, APP_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
 
@@ -21,10 +21,6 @@ image_list = {'1403':'456808', '2991012':'10922955', '343038':'2062154', '260183
 '4305945':'12736851', '4340170':'12780021', '3650000':'11847041', '3961906':'12284159', '3502536':'11644415'}
 
 def create_image(status):
-    """
-    Picks a random phrase from first_list and second_list, combines with a random generator ID
-    then runs it through Memegenerator API to get poster image 
-    """
     mg_user = 'RyanGoslingsBugle'
     mg_pass = 'memegenerator.net'
     generator_id = random.choice(list(image_list.keys())) 
@@ -39,18 +35,18 @@ def get_followers():
     """
     Automatically follows all new followers
     """
-    following = api.get_friends_ids()
-    followers = api.get_followers_ids()
+    following = api.get_friends_ids(screen_name='seagalbot')
+    followers = api.get_followers_ids(screen_name='seagalbot')
 
     not_following_back = []
     
-    for f in followers:
-        if f not in following:
+    for f in followers['ids']:
+        if f not in following['ids']:
                 not_following_back.append(f)
 
-    for user_id in not_following_back:
+    for follower_id in not_following_back:
         try:
-            api.create_friendship(user_id)
+            api.create_friendship(user_id=follower_id)
         except Exception as e:
             print("error: %s" % (str(e)))
 
