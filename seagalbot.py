@@ -4,10 +4,10 @@ from twython import Twython
 import random, requests
 from io import BytesIO
 
-APP_KEY = 'R7nija1KbLNzmzhDJO2YApBuk'
-APP_SECRET = 'S9A60wN2sqO0cjgIhPPWEkgYtpFct5oLobMLOL4ojrGk9U8aw6'
-OAUTH_TOKEN = '3042944175-2YUohVoxctHDKR8bKahSkJpTTa4etHrsnzeSb4T'
-OAUTH_TOKEN_SECRET = 'Qda7toZnX6CpgkeFQibn7uG2hbWDHGQsnclnphOgThtjN'
+APP_KEY = xxxxxxx
+APP_SECRET = xxxxxxx
+OAUTH_TOKEN = xxxxxxx
+OAUTH_TOKEN_SECRET = xxxxxxx
 
 api = Twython(APP_KEY, APP_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
 
