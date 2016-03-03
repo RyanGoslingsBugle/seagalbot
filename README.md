@@ -11,6 +11,6 @@ You'll also need to set up a new application with read/write access to your acco
 
 ##Tweets with images
 
-Currently uses the deprecated POST statuses/update_with_media API method as described here.
+Currently uses the deprecated POST statuses/update_with_media API method as described [here](https://dev.twitter.com/rest/reference/post/statuses/update_with_media).
 
 Twitter now want you to upload media first before creating the status update separately, which I'll probably implement at a later point. Or you could help me out :)
