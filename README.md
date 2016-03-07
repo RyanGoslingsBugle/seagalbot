@@ -1,7 +1,7 @@
 # seagalbot
 Basic autonomous script coded in Python to generate new tweets and follow back followers for the [Seagal Hits](https://twitter.com/seagalbot) Twitter bot.
 
-Generates an image with Memegenerator API, checks new followers and follows any not currently being followed every time it executes, so hook it up to a crontab and go wild.
+Generates an image with Imgflip API, checks new followers and follows any not currently being followed every time it executes, so hook it up to a crontab and go wild.
 
 ##Authentication
 
