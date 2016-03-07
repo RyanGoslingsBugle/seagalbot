@@ -17,19 +17,16 @@ first_list = ["Appetite For", "Famished For", "Starving For", "Greedy For", "Vor
 second_list = ["Annihilation", "Assassination", "Butchery", "Crucifixion", "Decapitation", "Devastation", "Decimation", "Destruction", "Garroting",
 "Guillotining", "Lapidation", "Liquidation", "Massacres", "Murder", "Neutralization", "Ruination", "Slaughter", "Slayings", "Smiting", "Sniping",
 "Termination", "Extermination", "Harpooning", "Exsanguination", "Strangulation", "Assaults", "Kill"]
-image_list = {'1403':'456808', '2991012':'10922955', '343038':'2062154', '2601831':'10169828', '3540388':'11691205', '3305675':'11370388',
-'4305945':'12736851', '4340170':'12780021', '3650000':'11847041', '3961906':'12284159', '3502536':'11644415'}
+image_list = ['12449792','39253225','25741644','19016174','41706702','53733315','56208839','57905320','58274511']
 
 def create_image(status):
-    mg_user = 'RyanGoslingsBugle'
+mg_user = 'RyanGoslingsBugle'
     mg_pass = 'memegenerator.net'
-    generator_id = random.choice(list(image_list.keys())) 
-    image_id = image_list[generator_id]
-    request_string = 'http://version1.api.memegenerator.net/Instance_Create?username=' + mg_user + '&password=' + mg_pass + '&languageCode=en&generatorID=' + generator_id  + '&imageID=' + image_id  + '&text0=' + status + '&text1=starring Steven Seagal'
+    generator_id = random.choice(image_list)
+    request_string = 'https://api.imgflip.com/caption_image?template_id=' + generator_id + '&username=' + mg_user + '&password=' + mg_pass + '&text0=' + status + '&text1=starring Steven Seag$
     mg_response = requests.get(request_string)
-    response_dict = mg_response.json()
-    inner_dict = response_dict['result']
-    return requests.get(url=inner_dict['instanceImageUrl']).content
+    response = mg_response.json()
+    return requests.get(response['data']['url']).content
 
 def get_followers():
     """
